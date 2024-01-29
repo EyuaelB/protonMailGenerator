@@ -32,6 +32,7 @@ def getClip6digit():
     finally:
         user32.CloseClipboard()
 
+
 def getMail():
     user32.OpenClipboard(0)
     try:
@@ -41,22 +42,20 @@ def getMail():
             text = ctypes.c_char_p(data_locked)
             value = text.value
             kernel32.GlobalUnlock(data_locked)
-            if "@dropmail.me" in str(value) or "@emltmp.com" in str(value) or "@spymail.one" in str(value) or "@10mail.org" in str(value):
+            if "@dropmail.me" in str(value) or  "@spymail.one" in str(value) or "@10mail.org" in str(value):   
                 match = re.search(r'[\w.+-]+@[\w-]+\.[\w.-]+', str(value))
                 return str(match.group(0))
             return False
     finally:
         user32.CloseClipboard()
+        
+        
 webbrowser.open('https://account.proton.me/signup?plan=free')
-time.sleep(5)
+time.sleep(10)
 
 
 
-def randomize(
-                _option_,
-                _length_
-            ):
-
+def randomize(_option_, _length_ ):
     if _length_ > 0 :
 
         # Options:6Ww$oRvfSVk95tyM  6Ww$oRvfSVk95tyM    
@@ -94,11 +93,11 @@ def randomize(
         return 'error'
 
 # Username
-_username_=randomize('-s',5)+randomize('-s',5)+randomize('-s',5)
-pyautogui.typewrite(_username_ + '\t\t')
+_username_=randomize('-s',5)+randomize('-s',5)+randomize('-s',5)  
+pyautogui.typewrite(_username_ + '\t\t\t') #add another tab
 print("Username:" + _username_)
 
-# Password
+# Password                                                                                                          
 _password_=randomize('-p',16)
 pyautogui.typewrite(_password_+'\t'+_password_+'\t')
 print("Password:" + _password_)
@@ -116,12 +115,20 @@ pyautogui.typewrite('https://dropmail.me/\n')
 pyautogui.keyDown('shift');pyautogui.keyDown('down'); pyautogui.keyUp('down'); pyautogui.keyUp('shift')
 time.sleep(10)
 
-newMail = True
+newMail = False
 while True:
     if not newMail:
         pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('r'); pyautogui.keyUp('ctrlleft')
         time.sleep(5)
-    pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t')
+        
+    pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t')#28
+    
+    #select the text
+    pyautogui.keyDown('shift')
+    pyautogui.press('right') 
+    pyautogui.press('left') 
+    pyautogui.keyUp('shift')
+    
     pyautogui.keyDown('ctrlleft')
     pyautogui.keyDown('shiftleft')
     pyautogui.keyDown('shiftright')
@@ -129,8 +136,11 @@ while True:
     pyautogui.keyUp('shiftleft')
     pyautogui.keyUp('shiftright')
     pyautogui.keyUp('ctrlleft')
+    
+    # time.sleep
     pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('c'); pyautogui.keyUp('ctrlleft')
     newMail = getMail()
+    
     if newMail:
         print("10 min mail: " + newMail)
         break
@@ -145,12 +155,13 @@ pyautogui.typewrite('\n')
 time.sleep(10)
 
 pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('\t'); pyautogui.keyUp('ctrlleft')
-time.sleep(1)
+time.sleep(10)
 
-#pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\n')
+pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n') 
 
-#time.sleep(5)
+time.sleep(5)
 
+pyautogui.keyDown('shiftleft'); pyautogui.keyDown('shiftright'); pyautogui.typewrite('\t'); pyautogui.typewrite('\t'); pyautogui.keyUp('shiftleft'); pyautogui.keyUp('shiftright')
 
 pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('a'); pyautogui.keyUp('ctrlleft')
 pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('c'); pyautogui.keyUp('ctrlleft')

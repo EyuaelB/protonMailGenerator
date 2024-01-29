@@ -41,18 +41,20 @@ def getMail():
             text = ctypes.c_char_p(data_locked)
             value = text.value
             kernel32.GlobalUnlock(data_locked)
-            if "@dropmail.me" in str(value)  or "@10mail.org"  in str(value)  or "@emlpro.com" in str(value) or "@emltmp.com" in str(value): # 
+            if "@dropmail.me" in str(value)  or "@10mail.org"  in str(value)  or "@emlpro.com" in str(value): 
                 match = re.search(r'[\w.+-]+@[\w-]+\.[\w.-]+', str(value))
                 return str(match.group(0))
             return False
     finally:
         user32.CloseClipboard()
-webbrowser.open('https://google.com')
+        
+# webbrowser.open('https://google.com')
+webbrowser.open('https://account.proton.me/signup?plan=free\n')
 
-time.sleep(5)
-pyautogui.keyDown('ctrlleft'); pyautogui.keyDown('shift'); pyautogui.typewrite('p'); pyautogui.keyUp('ctrlleft'); pyautogui.keyUp('shift')
-pyautogui.typewrite('https://account.proton.me/signup?plan=free\n')
-time.sleep(5)
+# time.sleep(5)
+# pyautogui.keyDown('ctrlleft'); pyautogui.keyDown('shift'); pyautogui.typewrite('p'); pyautogui.keyUp('ctrlleft'); pyautogui.keyUp('shift')
+# pyautogui.typewrite('https://account.proton.me/signup?plan=free\n')
+time.sleep(10)
 
 
 
@@ -99,7 +101,8 @@ def randomize(
 
 # Username
 _username_=randomize('-s',5)+randomize('-s',5)+randomize('-s',5)
-pyautogui.typewrite(_username_ + '\t\t')
+
+pyautogui.typewrite(_username_ + '\t\t\t') #add another tab
 print("Username:" + _username_)
 
 # Password
@@ -120,7 +123,7 @@ pyautogui.typewrite('https://dropmail.me/\n')
 pyautogui.keyDown('shift');pyautogui.keyDown('down'); pyautogui.keyUp('down'); pyautogui.keyUp('shift')
 time.sleep(10)
 
-newMail = True
+newMail = False
 while True:
     if not newMail:
         pyautogui.keyDown('ctrlleft'); pyautogui.typewrite('r'); pyautogui.keyUp('ctrlleft')
@@ -151,9 +154,13 @@ time.sleep(10)
 pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('\t'); pyautogui.keyUp('ctrlleft')
 time.sleep(1)
 
-#pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\n')
+pyautogui.typewrite('\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n') 
 
-#time.sleep(5)
+time.sleep(5)
+
+
+pyautogui.keyDown('shiftleft'); pyautogui.keyDown('shiftright'); pyautogui.typewrite('\t'); pyautogui.typewrite('\t'); pyautogui.keyUp('shiftleft'); pyautogui.keyUp('shiftright')
+
 
 
 pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('a'); pyautogui.keyUp('ctrlleft')

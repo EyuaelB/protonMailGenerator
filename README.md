@@ -1,4 +1,4 @@
-# protonMailGenerator
+h# protonMailGenerator
 A E-Mail Generator
 
 
@@ -6,6 +6,7 @@ A E-Mail Generator
 
 
 The mail is ready when the script is done. It will already be VERIFIED and NO further manual VERIFICATION needed not like at other generators
+ttps://dropmail.me/
 
 ### USAGE
 
@@ -20,7 +21,8 @@ Firefox as standard browser is recommended but not must have (for chrome or othe
 install python: https://www.python.org/downloads/
 and don't forget to add python to your PATH
 
-open cmd and type in:
+open cmd and type in:https://dropmail.me/
+
   
   pip install Pillow
   
