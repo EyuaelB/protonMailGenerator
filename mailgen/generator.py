@@ -48,12 +48,9 @@ def getMail():
     finally:
         user32.CloseClipboard()
         
-# webbrowser.open('https://google.com')
 webbrowser.open('https://account.proton.me/signup?plan=free\n')
 
-# time.sleep(5)
-# pyautogui.keyDown('ctrlleft'); pyautogui.keyDown('shift'); pyautogui.typewrite('p'); pyautogui.keyUp('ctrlleft'); pyautogui.keyUp('shift')
-# pyautogui.typewrite('https://account.proton.me/signup?plan=free\n')
+
 time.sleep(10)
 
 
